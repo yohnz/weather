@@ -1,0 +1,21 @@
+{
+  "manifest_version":2,
+  "name":"极简天气",
+  "description":"极简天气预报",
+  "version":"1.0",
+  "icons": {
+        "16": "images/sun16.png",
+        "48": "images/sun48.png",
+        "128": "images/sun128.png"
+   },
+  "browser_action":{
+      "default_icon":"images/sun48.png",
+      "default_title":"天气预报",
+      "default_popup":"popup.html"
+  },
+  "permissions":[
+     "http://api.openweathermap.org/data/2.5/forecast?q=*",
+     "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json"
+  ]
+   
+}
