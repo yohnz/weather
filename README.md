@@ -5,4 +5,4 @@
 
 ![截图](./images/1.png "截图")
 
-戳这里下载：<https://github.com/yohnz/weather/weather.crx>
+戳这里右键另存为：<https://github.com/yohnz/weather/weather.crx>
