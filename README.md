@@ -1,2 +1,3 @@
-# weather
-chrome extensions
+## 极简天气
+一款简单的chrome天气插件。
+
