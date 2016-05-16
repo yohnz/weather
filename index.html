@@ -26,9 +26,349 @@
 
 <p>如图：</p>
 
-<p><img src="https://github.com/yohnz/weather/raw/master/images/1.png" alt="截图" title="截图"></p>
+<p>![截图<a href="https://github.com/yohnz/weather/raw/master/images/1.png">https://github.com/yohnz/weather/raw/master/images/1.png</a> "截图")</p>
 
 <p>戳这里右键另存为：<a href="https://github.com/yohnz/weather/weather.crx">https://github.com/yohnz/weather/weather.crx</a></p>
+
+<h3>
+<a id="创建文件" class="anchor" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>创建文件</h3>
+
+<p>新建weather文件夹，里面包含manifest.json，popup.html和images文件夹。images文件夹放16,48,128三种不同尺寸的图标</p>
+
+<p>manifest.json内代码如下：</p>
+
+<pre><code>{
+  "manifest_version":2,
+  "name":"极简天气",
+  "description":"极简天气预报",
+  "version":"1.0",
+  "icons": {
+        "16": "images/sun16.png",
+        "48": "images/sun48.png",
+        "128": "images/sun128.png"
+   },
+  "browser_action":{
+      "default_icon":"images/sun48.png",
+      "default_title":"天气预报",
+      "default_popup":"popup.html"
+  },
+
+}
+</code></pre>
+
+<p>popup.html的代码如下：</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;天气&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ &lt;div class="weather"&gt;    
+    Test    
+ &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3>
+<a id="文件说明" class="anchor" href="#%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文件说明</h3>
+
+<p><strong>manifest.json</strong></p>
+
+<p>必需文件，是整个扩展的入口，每个Chrome扩展都包含一个Manifest文件。Manifest必须包含name、version和manifest_version属性。</p>
+
+<p>属性说明：</p>
+
+<ul>
+<li>
+<code>manifest_version</code>指定文件格式的版本，在Chrome18之后，应该都是2</li>
+<li>
+<code>name</code>扩展名称</li>
+<li>
+<code>version</code> 扩展版本号</li>
+<li>
+<code>version</code>扩展的版本</li>
+<li>
+<code>icons</code>扩展列表图标</li>
+<li>
+<code>browser_action</code>指定扩展在Chrome工具栏中的显示信息。</li>
+<li>
+<code>default_icon</code>、<code>default_title</code>、<code>default_popup</code>依次指定图标、标题、对应的页面</li>
+</ul>
+
+<p><strong>Popup页面</strong></p>
+
+<p>Popup页面是当用户点击扩展图标时，展示在图标下面的页面。</p>
+
+<p>打开chrome扩展程序界面，勾选"开发者模式",拖入weather文件夹，然后就可以看到weather扩展已经出现在chrome扩展程序列表了</p>
+
+<p><img src="https://github.com/yohnz/weather/raw/master/images/1.jpg" alt=""></p>
+
+<p>同时，工具栏也出现了weather的图标，点击之后会弹出popup界面:</p>
+
+<p><img src="https://github.com/yohnz/weather/raw/master/images/2.jpg" alt=""></p>
+
+<h3>
+<a id="完善页面和样式" class="anchor" href="#%E5%AE%8C%E5%96%84%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%A0%B7%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>完善页面和样式</h3>
+
+<p>完善静态popup页面,模拟天气数据:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;天气&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="weather"&gt;
+        &lt;div class="today" id="today"&gt;
+            &lt;h1 class="city"&gt;厦门&lt;/h1&gt;
+            &lt;div class="row_detail"&gt;&lt;img src="http://files.heweather.com/cond_icon/104.png"&gt;
+                &lt;h1&gt;19&lt;span&gt;℃&lt;/span&gt;&lt;/h1&gt;&lt;/div&gt;
+            &lt;div class="wind"&gt;
+                &lt;h2&gt;阴&lt;/h2&gt;
+                &lt;h4&gt;风速 20   湿度 89%&lt;/h4&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="content"&gt;
+            &lt;div class="wrap" id="wrap"&gt;
+                &lt;div class="row"&gt;
+                    &lt;h4&gt;2016-05-16&lt;/h4&gt;&lt;img src="http://files.heweather.com/cond_icon/104.png"&gt;
+                    &lt;h1&gt;19~24&lt;/h1&gt;
+                    &lt;h4&gt;阴&lt;/h4&gt;
+                &lt;/div&gt;               
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>新建CSS文件，并在popup页面引入</p>
+
+<pre><code>body{
+    width:740px;
+    height:400px;
+    font-family: 'Microsoft Yahei';
+    color:#333;
+    background:#fefefe;
+    text-shadow:1px 1px 6px #333;
+}
+
+.city{
+    text-align:center
+}
+.today{
+    padding-bottom:30px;
+}
+.row_detail{
+    display: flex;
+    direction: row;
+    justify-content:center;
+    align-items: center;
+}
+.row_detail img{
+    width:80px;    
+}
+.row_detail h1{
+    font-size:60px;
+}
+.wind{
+    text-align: center;
+}
+.content{
+    display: flex;
+    direction: column
+}
+
+.wrap{
+    display: flex;
+    direction: row;
+    flex: 1;
+    justify-content:space-around;
+    align-items: center;
+}
+.row{
+    background:#fff;
+    border:1px solid #ccc;
+    padding:10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.3);
+}
+.row img{
+    width:80px;
+}
+.row h1{
+    font-size:18px;
+}
+h1,h4{
+    text-align: center;
+    margin:0;
+}
+
+</code></pre>
+
+<p>点击工具栏weather图标，此时界面如图：</p>
+
+<p><img src="https://github.com/yohnz/weather/raw/master/images/3.jpg" alt=""></p>
+
+<h3>
+<a id="获取真实天气数据" class="anchor" href="#%E8%8E%B7%E5%8F%96%E7%9C%9F%E5%AE%9E%E5%A4%A9%E6%B0%94%E6%95%B0%E6%8D%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>获取真实天气数据</h3>
+
+<p>Google允许Chrome扩展应用不必受限于跨域限制。但出于安全考虑，需要在Manifest的permissions属性中声明需要跨域的权限。
+这里以<a href="http://www.heweather.com/">和风天气API</a>为例.
+首先，在Manifest里添加要请求的API接口：</p>
+
+<pre><code>"permissions":[
+     "http://api.openweathermap.org/data/2.5/forecast?q=*",   
+  ]
+</code></pre>
+
+<p>然后新建popup.js并在popup页面中引入
+简单的ajax函数：</p>
+
+<pre><code>function httpRequest(url,callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET',url,true);
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4){
+            callback(xhr.responseText);
+        }
+    }
+    xhr.send();
+}
+</code></pre>
+
+<p>和风天气API可以通过城市名称，城市代码,IP三种方式来获取指定城市天气数据，不过经过测试发现，IP获取的方式不准确，城市有偏差，所以，直接用城市名称来获取。这里借用<code>http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json</code>获取城市名称。</p>
+
+<pre><code>httpRequest('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json',function(data) {
+    if(!data) return;
+    data = JSON.parse(data);
+    var city = data.city;
+    var url = 'https://api.heweather.com/x3/weather?city='+city+'&amp;key=youkey';
+        httpRequest(url,function(data) {
+            data = JSON.parse(data);
+            var result = data["HeWeather data service 3.0"][0];        
+            showWeather(city,result);            
+        });
+});
+</code></pre>
+
+<p>为了方便的解析图片，构建一个json</p>
+
+<pre><code>var cond_info = {
+100:"http://files.heweather.com/cond_icon/100.png",
+101:"http://files.heweather.com/cond_icon/101.png",
+102:"http://files.heweather.com/cond_icon/102.png",
+103:"http://files.heweather.com/cond_icon/103.png",
+104:"http://files.heweather.com/cond_icon/104.png",
+200:"http://files.heweather.com/cond_icon/200.png",
+201:"http://files.heweather.com/cond_icon/201.png",
+202:"http://files.heweather.com/cond_icon/202.png",
+203:"http://files.heweather.com/cond_icon/203.png",
+204:"http://files.heweather.com/cond_icon/204.png",
+205:"http://files.heweather.com/cond_icon/205.png",
+206:"http://files.heweather.com/cond_icon/206.png",
+207:"http://files.heweather.com/cond_icon/207.png",
+208:"http://files.heweather.com/cond_icon/208.png",
+209:"http://files.heweather.com/cond_icon/209.png",
+210:"http://files.heweather.com/cond_icon/210.png",
+211:"http://files.heweather.com/cond_icon/211.png",
+212:"http://files.heweather.com/cond_icon/212.png",
+213:"http://files.heweather.com/cond_icon/213.png",
+300:"http://files.heweather.com/cond_icon/300.png",
+301:"http://files.heweather.com/cond_icon/301.png",
+302:"http://files.heweather.com/cond_icon/302.png",
+303:"http://files.heweather.com/cond_icon/303.png",
+304:"http://files.heweather.com/cond_icon/304.png",
+305:"http://files.heweather.com/cond_icon/305.png",
+306:"http://files.heweather.com/cond_icon/306.png",
+307:"http://files.heweather.com/cond_icon/307.png",
+308:"http://files.heweather.com/cond_icon/308.png",
+309:"http://files.heweather.com/cond_icon/309.png",
+310:"http://files.heweather.com/cond_icon/310.png",
+311:"http://files.heweather.com/cond_icon/311.png",
+312:"http://files.heweather.com/cond_icon/312.png",
+313:"http://files.heweather.com/cond_icon/313.png",
+400:"http://files.heweather.com/cond_icon/400.png",
+401:"http://files.heweather.com/cond_icon/401.png",
+402:"http://files.heweather.com/cond_icon/402.png",
+403:"http://files.heweather.com/cond_icon/403.png",
+404:"http://files.heweather.com/cond_icon/404.png",
+405:"http://files.heweather.com/cond_icon/405.png",
+406:"http://files.heweather.com/cond_icon/406.png",
+407:"http://files.heweather.com/cond_icon/407.png",
+500:"http://files.heweather.com/cond_icon/500.png",
+501:"http://files.heweather.com/cond_icon/501.png",
+502:"http://files.heweather.com/cond_icon/502.png",
+503:"http://files.heweather.com/cond_icon/503.png",
+504:"http://files.heweather.com/cond_icon/504.png",
+506:"http://files.heweather.com/cond_icon/506.png",
+507:"http://files.heweather.com/cond_icon/507.png",
+508:"http://files.heweather.com/cond_icon/508.png",
+900:"http://files.heweather.com/cond_icon/900.png",
+901:"http://files.heweather.com/cond_icon/901.png",
+999:"http://files.heweather.com/cond_icon/999.png"
+}
+</code></pre>
+
+<p>showWeather()函数构建DOM;</p>
+
+<pre><code>function showWeather(city,result) { 
+    var daily = result.daily_forecast;
+    var now = result.now;
+    var dailyDom='';
+    for(var i=0;i&lt;daily.length;i++){
+        var day = daily[i];
+         dailyDom += '&lt;div class="row"&gt;'
+            +'&lt;h4&gt;'+day.date+'&lt;/h4&gt;'
+            +'&lt;img src="'+cond_info[day.cond.code_d]+'" /&gt;'
+            +'&lt;h1&gt;'+day.tmp.min+'~'+day.tmp.max+'&lt;/h1&gt;'
+            +'&lt;h4&gt;'+day.cond.txt_d+'&lt;/h4&gt;'     
+        +'&lt;/div&gt;'       
+    }
+    var today = '&lt;h1 class="city"&gt;'+city+'&lt;/h1&gt;'
+                +'&lt;div class="row_detail"&gt;'
+                    +'&lt;img src="'+cond_info[now.cond.code]+'" /&gt;'
+                    +'&lt;h1&gt;'+now.tmp+'&lt;span&gt;℃&lt;/span&gt;&lt;/h1&gt;'            
+                +'&lt;/div&gt;'
+                +'&lt;div class="wind"&gt;'
+                    +'&lt;h2&gt;'+now.cond.txt+'&lt;/h2&gt;'
+                    +'&lt;h4&gt;风速 '+now.wind.spd+'   湿度 '+now.hum+'%&lt;/h4&gt;'            
+                +'&lt;/div&gt;'
+
+    document.getElementById('today').innerHTML = today;
+    document.getElementById('wrap').innerHTML = dailyDom; 
+}
+</code></pre>
+
+<p>这时，再点击weather图标，天气扩展基本上就完成了，不过因为和风API有请求次数限制，也为了减少请求，这里做一下数据缓存。</p>
+
+<pre><code>var _time = new Date().getTime()-(60*60*1000*2); //接口次数有限，两小时请求一次
+var storageTime = localStorage.updateTime||0;
+
+httpRequest('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json',function(data) {
+    if(!data) return;
+    data = JSON.parse(data);
+    var city = data.city;
+    var url = 'https://api.heweather.com/x3/weather?city='+city+'&amp;key=youkey';
+    if(_time&gt;storageTime){
+        httpRequest(url,function(data) {
+            data = JSON.parse(data);
+            var result = data["HeWeather data service 3.0"][0];        
+            showWeather(city,result);
+            localStorage.updateTime = new Date().getTime();  
+            localStorage.data = JSON.stringify(result);    
+        });
+    }else{
+        var result = JSON.parse(localStorage.data);
+        showWeather(city,result);
+    }
+
+});
+</code></pre>
+
+<p>至此，一个简单的chrome天气扩展就完成了，是不是比想象中更简单。</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/yohnz/weather">Weather</a> is maintained by <a href="https://github.com/yohnz">yohnz</a>.</span>
