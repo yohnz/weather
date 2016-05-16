@@ -1,10 +1,6 @@
-## 极简天气
-一款简单的chrome天气插件。
-
-如图：
-
 ![截图](./images/1.png "截图")
 
+<<<<<<< HEAD
 戳这里右键另存为：<https://github.com/yohnz/weather/weather.crx>
 
 
@@ -184,3 +180,7 @@ Google允许Chrome扩展应用不必受限于跨域限制。但出于安全考�
      "http://api.openweathermap.org/data/2.5/forecast?q=*",   
   ]
 `
+=======
+**To see more details：**
+ http://yohnz.github.io/weather
+>>>>>>> 5e72dc31871efa54d70bbe0077ab6379a5947e23
