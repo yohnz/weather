@@ -1,6 +1,6 @@
 {
   "name": "Weather",
   "tagline": "chrome extensions",
-  "body": "## 极简天气\r\n一款简单的chrome天气插件。\r\n\r\n如图：\r\n\r\n![截图](./images/1.png \"截图\")\r\n\r\n戳这里右键另存为：<https://github.com/yohnz/weather/weather.crx>",
+  "body": "## 极简天气\r\n一款简单的chrome天气插件。\r\n\r\n如图：\r\n\r\n![截图](https://github.com/yohnz/weather/raw/master/images/1.png \"截图\")\r\n\r\n戳这里右键另存为：<https://github.com/yohnz/weather/weather.crx>",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
