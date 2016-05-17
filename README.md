@@ -1,5 +1,5 @@
 ## 极简天气
-一款简单的chrome天气插件http://yohnz.github.io/weather
+一款简单的chrome天气插件
 
 如图：
 
@@ -9,3 +9,6 @@
 
 
 如果觉得本文有帮助，请github赏个star~
+
+
+自己动手写~ http://yohnz.github.io/weather
