@@ -5,7 +5,7 @@
 
 ![截图](./images/1.png "截图")
 
-戳这里右键另存为：<https://github.com/yohnz/weather/weather.crx>
+戳这里右键另存为：<https://github.com/yohnz/weather/blob/master/weather.crx>
 
 
 如果觉得本文有帮助，请github赏个star~
